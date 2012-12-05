@@ -1,0 +1,21 @@
+<h1>All Probabilities</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>날짜</th>
+      <th>등수</th>
+      <th>횟수</th>
+      <th>삭제</th>
+    </tr>
+  </thead>
+<% @probabilities.each do |probability| %>
+<tr>
+  <td><%=probability.date%></td>
+  <td><%=probability.prize%></td>
+  <td><%=probability.count%></td>
+  <td><%= link_to 'Destroy', probability, method: :delete %></td>
+</tr>
+<% end %>
+</table>
+<%= link_to 'New Probability', new_probability_path %>
