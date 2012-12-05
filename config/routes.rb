@@ -4,6 +4,7 @@ Slotmachine::Application.routes.draw do
   resources :devices
 
   match 'device_information' => 'devices#information'
+  match 'initialize_data' => 'probabilities#initialize_data'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

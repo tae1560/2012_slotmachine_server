@@ -49,4 +49,46 @@ class ProbabilitiesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def initialize_data
+    Probability.destroy_all
+
+    "06/12/2012".to_date.upto("19/12/2012".to_date) do |day|
+      count = [0,1,1,1,1]
+      make_new_probability day, count
+    end
+
+    # mart
+    "20/12/2012".to_date.upto("26/12/2012".to_date) do |day|
+      count = [0,0,1,5,244]
+
+
+      if day == "22/12/2012".to_date
+        count[1] = 1
+      end
+      make_new_probability day, count
+    end
+
+    "27/12/2012".to_date.upto("29/12/2012".to_date) do |day|
+      count = [0,2,4,36,100]
+      make_new_probability day, count
+    end
+
+    respond_to do |format|
+      format.json { render :json => Probability.all }
+    end
+  end
+
+  def make_new_probability day, count
+    for prize in 1..4
+      pre_probability = Probability.where(:date => day, :prize => prize).first
+      if pre_probability == nil
+        pre_probability = Probability.new
+      end
+      pre_probability.date = day + 9.hours - 9.hours
+      pre_probability.prize = prize
+      pre_probability.count = count[prize]
+      pre_probability.save
+    end
+  end
 end
