@@ -11,6 +11,7 @@ class SlotLogsController < ApplicationController
 
     json_logs = params[:json_logs]
     device_id = params[:device_id]
+
     ret = true
 
     added_id = []

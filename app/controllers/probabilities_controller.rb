@@ -2,7 +2,17 @@ class ProbabilitiesController < ApplicationController
   #attr_accessible :date, :prize, :count
 
   def index
-    @probabilities = Probability.all
+    device_id = params[:device_id]
+
+    unless device_id
+      device_id = ""
+    end
+
+    if device_id.include? "ski"
+      @probabilities = Probability.where(:type => 2).all
+    elsif device_id.include? "mart"
+      @probabilities = Probability.where(:type => 1).all
+    end
 
     respond_to do |format|
       format.html
@@ -53,25 +63,25 @@ class ProbabilitiesController < ApplicationController
   def initialize_data
     Probability.destroy_all
 
-    "06/12/2012".to_date.upto("19/12/2012".to_date) do |day|
-      count = [0,1,1,1,1]
-      make_new_probability day, count
-    end
+    #"06/12/2012".to_date.upto("19/12/2012".to_date) do |day|
+    #  count = [0,1,1,1,1]
+    #  make_new_probability day, count
+    #end
 
     # mart
-    "20/12/2012".to_date.upto("26/12/2012".to_date) do |day|
+    "20/12/2012".to_date.upto("25/12/2012".to_date) do |day|
       count = [0,0,1,5,244]
 
 
       if day == "22/12/2012".to_date
         count[1] = 1
       end
-      make_new_probability day, count
+      make_new_probability day, count, 1
     end
 
     "27/12/2012".to_date.upto("29/12/2012".to_date) do |day|
       count = [0,2,4,36,100]
-      make_new_probability day, count
+      make_new_probability day, count, 2
     end
 
     respond_to do |format|
@@ -79,7 +89,7 @@ class ProbabilitiesController < ApplicationController
     end
   end
 
-  def make_new_probability day, count
+  def make_new_probability day, count, type
     for prize in 1..4
       pre_probability = Probability.where(:date => day, :prize => prize).first
       if pre_probability == nil
@@ -88,6 +98,7 @@ class ProbabilitiesController < ApplicationController
       pre_probability.date = day + 9.hours - 9.hours
       pre_probability.prize = prize
       pre_probability.count = count[prize]
+      pre_probability.type = type
       pre_probability.save
     end
   end
