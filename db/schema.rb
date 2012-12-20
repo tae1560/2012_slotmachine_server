@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121205125005) do
+ActiveRecord::Schema.define(:version => 20121220032045) do
 
   create_table "devices", :force => true do |t|
     t.string   "device_id"
@@ -27,6 +27,15 @@ ActiveRecord::Schema.define(:version => 20121205125005) do
     t.datetime "date"
     t.integer  "prize"
     t.integer  "count"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "slot_logs", :force => true do |t|
+    t.integer  "device_id"
+    t.integer  "db_id"
+    t.integer  "db_prize"
+    t.datetime "time"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
