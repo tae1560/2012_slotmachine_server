@@ -10,9 +10,9 @@ class ProbabilitiesController < ApplicationController
 
     @probabilities = []
     if device_id.include? "ski"
-      @probabilities = Probability.where(:type => 2).all
+      @probabilities = Probability.where(:pro_type => 2).all
     elsif device_id.include? "mart"
-      @probabilities = Probability.where(:type => 1).all
+      @probabilities = Probability.where(:pro_type => 1).all
     end
 
     respond_to do |format|
@@ -90,7 +90,7 @@ class ProbabilitiesController < ApplicationController
     end
   end
 
-  def make_new_probability day, count, type
+  def make_new_probability day, count, pro_type
     for prize in 1..4
       pre_probability = Probability.where(:date => day, :prize => prize).first
       if pre_probability == nil
@@ -99,7 +99,7 @@ class ProbabilitiesController < ApplicationController
       pre_probability.date = day + 9.hours - 9.hours
       pre_probability.prize = prize
       pre_probability.count = count[prize]
-      pre_probability.type = type
+      pre_probability.pro_type = pro_type
       pre_probability.save
     end
   end
