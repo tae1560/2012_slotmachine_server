@@ -98,7 +98,7 @@ class ProbabilitiesController < ApplicationController
 
   def make_new_probability day, count, pro_type
     for prize in 1..4
-      pre_probability = Probability.where(:date => day, :prize => prize).first
+      pre_probability = Probability.where(:date => day, :prize => prize, :pro_type => pro_type).first
       if pre_probability == nil
         pre_probability = Probability.new
       end
