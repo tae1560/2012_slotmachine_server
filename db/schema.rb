@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(:version => 20121220052038) do
     t.integer  "count"
     t.datetime "created_at",                :null => false
     t.datetime "updated_at",                :null => false
-    t.integer  "type",       :default => 0
+    t.integer  "pro_type",   :default => 0
   end
 
   create_table "slot_logs", :force => true do |t|
