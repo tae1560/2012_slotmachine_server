@@ -8,6 +8,7 @@ class ProbabilitiesController < ApplicationController
       device_id = ""
     end
 
+    @probabilities = []
     if device_id.include? "ski"
       @probabilities = Probability.where(:type => 2).all
     elsif device_id.include? "mart"
