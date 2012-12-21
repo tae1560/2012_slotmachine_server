@@ -72,7 +72,7 @@ class ProbabilitiesController < ApplicationController
     #end
 
     # mart
-    "21/12/2012".to_date.upto("23/12/2012".to_date) do |day|
+    "22/12/2012".to_date.upto("23/12/2012".to_date) do |day|
       count = [0,0,1,5,190]
 
 
@@ -89,7 +89,7 @@ class ProbabilitiesController < ApplicationController
     end
 
     # ski
-    "21/12/2012".to_date.upto("23/12/2012".to_date) do |day|
+    "22/12/2012".to_date.upto("23/12/2012".to_date) do |day|
       count = [0,1,4,36,100]
       make_new_probability day, count, 2
     end

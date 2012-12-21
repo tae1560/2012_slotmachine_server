@@ -31,7 +31,7 @@
       <file leaf-file-name="probabilities_controller.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/probabilities_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="80" column="9" selection-start="2083" selection-end="2083" vertical-scroll-proportion="0.34210527">
+            <state line="84" column="7" selection-start="2141" selection-end="2141" vertical-scroll-proportion="0.4473684">
               <folding />
             </state>
           </provider>
@@ -832,7 +832,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/probabilities_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="80" column="9" selection-start="2083" selection-end="2083" vertical-scroll-proportion="0.34210527">
+        <state line="84" column="7" selection-start="2141" selection-end="2141" vertical-scroll-proportion="0.4473684">
           <folding />
         </state>
       </provider>
