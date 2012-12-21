@@ -24,11 +24,12 @@ class SlotLogsController < ApplicationController
         time = parsed_json_log["time"]
 
         #SlotLog.
-        if SlotLog.where(:db_id => id).exists?
-          slot_log = SlotLog.where(:db_id => id).first
-        else
-          slot_log = SlotLog.new(:db_id => id)
-        end
+        #if SlotLog.where(:db_id => id).exists?
+        #  slot_log = SlotLog.where(:db_id => id).first
+        #else
+        #  slot_log = SlotLog.new(:db_id => id)
+        #end
+        slot_log = SlotLog.new(:db_id => id)
 
         slot_log.db_id = id
         slot_log.db_prize = db_prize
