@@ -3,22 +3,22 @@
 <table style="text-align: center;">
   <thead>
   <tr>
-    <th>ID</th>
+    <th>번호</th>
+    <th>매장ID</th>
     <th>업데이트 시작시간</th>
     <th>업데이트 종료시간</th>
     <th>업데이트 필요여부</th>
-    <th>업로드 필요여부</th>
-    <th>삭제</th>
+    <th>정보보기</th>
   </tr>
   </thead>
   <% @devices.each do |device| %>
       <tr>
+        <td><%=device.id%></td>
         <td><%=device.device_id%></td>
         <td><%=device.update_start_date%></td>
         <td><%=device.update_end_date%></td>
         <td><%=device.need_update%></td>
-        <td><%=device.need_upload%></td>
-        <td><%= link_to 'Destroy', device, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to "정보보기", device %></td>
       </tr>
   <% end %>
 </table>

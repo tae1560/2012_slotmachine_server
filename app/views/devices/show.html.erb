@@ -1,0 +1,48 @@
+<ul>
+  <li>번호 : <%= @device.id %></li>
+  <li>아이디 : <%= @device.device_id %></li>
+  <li>당첨 로그 :
+    <table style="text-align: center;">
+      <thead>
+      <tr>
+        <th>번호</th>
+        <th>등수</th>
+        <th>시간</th>
+      </tr>
+      </thead>
+      <tbody>
+      <% @device.slot_logs.each do |slot_log| %>
+      <% if slot_log.db_prize < 4 %>
+              <tr>
+                <td><%= slot_log.db_id %></td>
+                <td><%= slot_log.db_prize %></td>
+                <td><%= slot_log.time %></td>
+              </tr>
+      <% end %>
+      <% end %>
+
+      </tbody>
+    </table>
+  </li>
+  <li>전체 로그 :
+    <table style="text-align: center;">
+      <thead>
+          <tr>
+            <th>번호</th>
+            <th>등수</th>
+            <th>시간</th>
+          </tr>
+      </thead>
+      <tbody>
+          <% @device.slot_logs.each do |slot_log| %>
+              <tr>
+                <td><%= slot_log.db_id %></td>
+                <td><%= slot_log.db_prize %></td>
+                <td><%= slot_log.time %></td>
+              </tr>
+          <% end %>
+
+      </tbody>
+    </table>
+  </li>
+</ul>

@@ -35,6 +35,10 @@ class DevicesController < ApplicationController
     end
   end
 
+  def show
+    @device = Device.find(params[:id])
+  end
+
   def destroy
     @device = Device.find(params[:id])
     @device.destroy
