@@ -2,47 +2,51 @@
   <li>번호 : <%= @device.id %></li>
   <li>아이디 : <%= @device.device_id %></li>
   <li>당첨 로그 :
-    <table style="text-align: center;">
-      <thead>
-      <tr>
-        <th>번호</th>
-        <th>등수</th>
-        <th>시간</th>
-      </tr>
-      </thead>
-      <tbody>
-      <% @device.slot_logs.each do |slot_log| %>
-      <% if slot_log.db_prize < 4 %>
-              <tr>
-                <td><%= slot_log.db_id %></td>
-                <td><%= slot_log.db_prize %></td>
-                <td><%= slot_log.time %></td>
-              </tr>
-      <% end %>
-      <% end %>
-
-      </tbody>
-    </table>
-  </li>
-  <li>전체 로그 :
-    <table style="text-align: center;">
-      <thead>
+    <div class="itsthetable">
+        <table>
+          <thead>
           <tr>
             <th>번호</th>
             <th>등수</th>
             <th>시간</th>
           </tr>
-      </thead>
-      <tbody>
+          </thead>
+          <tbody>
           <% @device.slot_logs.each do |slot_log| %>
-              <tr>
-                <td><%= slot_log.db_id %></td>
-                <td><%= slot_log.db_prize %></td>
-                <td><%= slot_log.time %></td>
-              </tr>
+          <% if slot_log.db_prize < 4 %>
+                  <tr>
+                    <td><%= slot_log.db_id %></td>
+                    <td><%= slot_log.db_prize %></td>
+                    <td><%= slot_log.time.in_time_zone("Seoul") %></td>
+                  </tr>
+          <% end %>
           <% end %>
 
-      </tbody>
-    </table>
+          </tbody>
+        </table>
+    </div>
+  </li>
+  <li>전체 로그 :
+    <div class="itsthetable">
+        <table>
+          <thead>
+              <tr>
+                <th>번호</th>
+                <th>등수</th>
+                <th>시간</th>
+              </tr>
+          </thead>
+          <tbody>
+              <% @device.slot_logs.each do |slot_log| %>
+                  <tr>
+                    <td><%= slot_log.db_id %></td>
+                    <td><%= slot_log.db_prize %></td>
+                    <td><%= slot_log.time.in_time_zone("Seoul") %></td>
+                  </tr>
+              <% end %>
+
+          </tbody>
+        </table>
+    </div>
   </li>
 </ul>
