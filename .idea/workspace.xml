@@ -28,19 +28,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="probabilities_controller.rb" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="probabilities_controller.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/probabilities_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="88" column="20" selection-start="2195" selection-end="2195" vertical-scroll-proportion="0.0">
+            <state line="106" column="30" selection-start="2697" selection-end="2700" vertical-scroll-proportion="0.4966443">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html.erb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="index.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/devices/index.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="25" column="59" selection-start="723" selection-end="723" vertical-scroll-proportion="0.6555944">
+            <state line="16" column="31" selection-start="309" selection-end="309" vertical-scroll-proportion="-10.0">
               <folding />
             </state>
           </provider>
@@ -49,7 +49,7 @@
       <file leaf-file-name="devices_controller.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/devices_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="38" column="38" selection-start="859" selection-end="859" vertical-scroll-proportion="0.0">
+            <state line="22" column="33" selection-start="564" selection-end="565" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -98,10 +98,10 @@
         <option value="$PROJECT_DIR$/app/models/device.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20121220052038_add_type_column_to_probabilities.rb" />
         <option value="$PROJECT_DIR$/app/models/probability.rb" />
-        <option value="$PROJECT_DIR$/app/controllers/probabilities_controller.rb" />
         <option value="$PROJECT_DIR$/app/controllers/devices_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/devices/show.html.erb" />
         <option value="$PROJECT_DIR$/app/views/devices/index.html.erb" />
+        <option value="$PROJECT_DIR$/app/controllers/probabilities_controller.rb" />
       </list>
     </option>
   </component>
@@ -691,13 +691,6 @@
         <state line="2" column="40" selection-start="106" selection-end="114" vertical-scroll-proportion="0.048543688" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/probabilities_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="88" column="20" selection-start="2195" selection-end="2195" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/slot_log.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="5" column="0" selection-start="104" selection-end="104" vertical-scroll-proportion="0.12135922">
@@ -708,13 +701,6 @@
     <entry file="file://$PROJECT_DIR$/app/models/probability.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="1" column="0" selection-start="39" selection-end="39" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/devices_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="38" selection-start="859" selection-end="859" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -731,7 +717,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/devices/index.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="59" selection-start="723" selection-end="723" vertical-scroll-proportion="0.6555944">
+        <state line="16" column="31" selection-start="309" selection-end="309" vertical-scroll-proportion="-10.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/devices_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="33" selection-start="564" selection-end="565" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/probabilities_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="106" column="30" selection-start="2697" selection-end="2700" vertical-scroll-proportion="0.4966443">
           <folding />
         </state>
       </provider>

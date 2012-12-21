@@ -13,6 +13,8 @@ class ProbabilitiesController < ApplicationController
       @probabilities = Probability.where(:pro_type => 2).all
     elsif device_id.include? "mart"
       @probabilities = Probability.where(:pro_type => 1).all
+    elsif device_id.include? "taeho"
+      @probabilities = Probability.where(:pro_type => 10).all
     end
 
     respond_to do |format|
@@ -80,15 +82,21 @@ class ProbabilitiesController < ApplicationController
       make_new_probability day, count, 1
     end
 
+    "21/12/2012".to_date.upto("23/12/2012".to_date) do |day|
+      count = [0,2,4,36,100]
+      make_new_probability day, count, 2
+    end
+
     "28/12/2012".to_date.upto("30/12/2012".to_date) do |day|
       count = [0,0,1,5,244]
 
       make_new_probability day, count, 1
     end
 
-    "21/12/2012".to_date.upto("23/12/2012".to_date) do |day|
-      count = [0,2,4,36,100]
-      make_new_probability day, count, 2
+    # for test taeho
+    "21/12/2012".to_date.upto("30/12/2012".to_date) do |day|
+      count = [0,0,1,1,10]
+      make_new_probability day, count, 10
     end
 
     respond_to do |format|
