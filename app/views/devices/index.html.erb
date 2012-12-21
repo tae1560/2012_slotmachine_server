@@ -1,31 +1,41 @@
+
 <h1>All Devices</h1>
 
-<table style="text-align: center;">
-  <thead>
-  <tr>
-    <th>번호</th>
-    <th>매장ID</th>
-    <th>업데이트 시작시간</th>
-    <th>업데이트 종료시간</th>
-    <th>업데이트 필요여부</th>
-    <th>정보보기</th>
-    <th>당첨상황</th>
-  </tr>
-  </thead>
-  <% @devices.each do |device| %>
-      <tr>
-        <td><%=device.id%></td>
-        <td><%=device.device_id%></td>
-        <td><%=device.update_start_date%></td>
-        <td><%=device.update_end_date%></td>
-        <td><%=device.need_update%></td>
-        <td><%= link_to "정보보기", device %></td>
-        <td>
-          <%= device.slot_logs.where(:db_prize=>1).size %> /
-          <%= device.slot_logs.where(:db_prize=>2).size %> /
-          <%= device.slot_logs.where(:db_prize=>3).size %> /
-          <%= device.slot_logs.where(:db_prize=>4).size %>
-        </td>
-      </tr>
-  <% end %>
-</table>
+<div id="itsthetable">
+  <table class="itsthetable" style="text-align: center; ">
+    <thead>
+    <tr>
+      <th>번호</th>
+      <th>매장ID</th>
+      <th>업데이트 시작시간</th>
+      <th>업데이트 종료시간</th>
+      <th>업데이트 필요여부</th>
+      <th>정보보기</th>
+      <th>당첨상황</th>
+    </tr>
+    </thead>
+    <% count = 0 %>
+    <% @devices.each do |device| %>
+        <% if count.odd? %>
+            <tr class="odd">
+        <% else %>
+            <tr class="even">
+        <% end
+           count += 1
+        %>
+          <td><%=device.id%></td>
+          <td><%=device.device_id%></td>
+          <td><%=device.update_start_date.in_time_zone("Seoul")%></td>
+          <td><%=device.update_end_date.in_time_zone("Seoul")%></td>
+          <td><%=device.need_update%></td>
+          <td><%= link_to "정보보기", device %></td>
+          <td>
+            <%= device.slot_logs.where(:db_prize=>1).size %> /
+            <%= device.slot_logs.where(:db_prize=>2).size %> /
+            <%= device.slot_logs.where(:db_prize=>3).size %> /
+            <%= device.slot_logs.where(:db_prize=>4).size %>
+          </td>
+        </tr>
+    <% end %>
+  </table>
+</div>
