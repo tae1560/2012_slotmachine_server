@@ -1,7 +1,7 @@
 <ul>
   <li>번호 : <%= @device.id %></li>
   <li>아이디 : <%= @device.device_id %></li>
-  <li>당첨 로그 :
+  <li>1등 당첨 로그 :
     <div class="itsthetable">
         <table>
           <thead>
@@ -12,18 +12,62 @@
           </tr>
           </thead>
           <tbody>
-          <% @device.slot_logs.each do |slot_log| %>
-          <% if slot_log.db_prize < 4 %>
+          <% @device.slot_logs.where(:db_prize => 1).each do |slot_log| %>
                   <tr>
                     <td><%= slot_log.db_id %></td>
                     <td><%= slot_log.db_prize %></td>
                     <td><%= slot_log.time %></td>
                   </tr>
           <% end %>
-          <% end %>
 
           </tbody>
         </table>
+    </div>
+  </li>
+  <li>2등 당첨 로그 :
+    <div class="itsthetable">
+      <table>
+        <thead>
+        <tr>
+          <th>번호</th>
+          <th>등수</th>
+          <th>시간</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @device.slot_logs.where(:db_prize => 2).each do |slot_log| %>
+            <tr>
+              <td><%= slot_log.db_id %></td>
+              <td><%= slot_log.db_prize %></td>
+              <td><%= slot_log.time %></td>
+            </tr>
+        <% end %>
+
+        </tbody>
+      </table>
+    </div>
+  </li>
+  <li>3등 당첨 로그 :
+    <div class="itsthetable">
+      <table>
+        <thead>
+        <tr>
+          <th>번호</th>
+          <th>등수</th>
+          <th>시간</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @device.slot_logs.where(:db_prize => 3).each do |slot_log| %>
+            <tr>
+              <td><%= slot_log.db_id %></td>
+              <td><%= slot_log.db_prize %></td>
+              <td><%= slot_log.time %></td>
+            </tr>
+        <% end %>
+
+        </tbody>
+      </table>
     </div>
   </li>
   <li>전체 로그 :
