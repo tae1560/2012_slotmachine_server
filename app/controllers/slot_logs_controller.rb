@@ -59,4 +59,32 @@ class SlotLogsController < ApplicationController
 
 
   end
+
+  def delete_duplicate
+    ret = false
+    @slot_logs = SlotLog.all
+    @slot_logs.each do |slot_log|
+      if SlotLog.where(:db_id => slot_log.db_id).where(:device_id => slot_log.device_id).size > 1
+        SlotLog.where(:db_id => slot_log.db_id).where(:device_id => slot_log.device_id).each do |dup_slot_log|
+          if dup_slot_log.id > slot_log.id
+            @slot_logs.delete dup_slot_log
+            dup_slot_log.destroy
+          end
+        end
+      end
+    end
+
+    @slot_logs = SlotLog.all
+    @slot_logs.each do |slot_log|
+      if SlotLog.where(:db_id => slot_log.db_id).where(:device_id => slot_log.device_id).size > 1
+        ret = true
+      end
+    end
+
+    if ret
+      render :json => "true"
+    else
+      render :json => "false"
+    end
+  end
 end

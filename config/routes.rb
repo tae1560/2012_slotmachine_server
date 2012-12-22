@@ -3,6 +3,7 @@ Slotmachine::Application.routes.draw do
   resources :probabilities
   resources :devices
   resources :slot_logs
+  match 'delete_duplicate' => 'slot_logs#delete_duplicate'
 
   match 'device_information' => 'devices#information'
   match 'initialize_data' => 'probabilities#initialize_data'
