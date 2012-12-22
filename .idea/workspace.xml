@@ -22,7 +22,7 @@
       <file leaf-file-name="slot_logs_controller.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/slot_logs_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="34" column="8" selection-start="979" selection-end="979" vertical-scroll-proportion="0.39473686">
+            <state line="31" column="10" selection-start="869" selection-end="869" vertical-scroll-proportion="0.6315789">
               <folding />
             </state>
           </provider>
@@ -835,7 +835,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/slot_logs_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="8" selection-start="979" selection-end="979" vertical-scroll-proportion="0.39473686">
+        <state line="31" column="10" selection-start="869" selection-end="869" vertical-scroll-proportion="0.6315789">
           <folding />
         </state>
       </provider>

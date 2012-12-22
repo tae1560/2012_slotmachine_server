@@ -27,7 +27,10 @@ class SlotLogsController < ApplicationController
         if SlotLog.where(:device_id => device_id).where(:db_id => id).exists?
           slot_log = SlotLog.where(:device_id => device_id).where(:db_id => id).first
         else
-          slot_log = SlotLog.new(:db_id => id, :device_id => device_id)
+          slot_log = SlotLog.new(:db_id => id)
+
+          device = Device.where(:device_id => device_id).first
+          slot_log.device = device
         end
         #slot_log = SlotLog.new(:db_id => id)
 
@@ -35,8 +38,7 @@ class SlotLogsController < ApplicationController
         slot_log.db_prize = db_prize
         slot_log.time = time
 
-        device = Device.where(:device_id => device_id).first
-        slot_log.device = device
+
 
         if slot_log.save
           added_id.push id
@@ -53,7 +55,7 @@ class SlotLogsController < ApplicationController
         #format.html { render :json => "success" }
         format.html { render :json => added_id }
       else
-        format.html { render :json => "failed" }
+        format.html { render :json => [] }
       end
     end
 
