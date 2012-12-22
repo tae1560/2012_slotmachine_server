@@ -12,7 +12,7 @@
           </tr>
           </thead>
           <tbody>
-          <% @device.slot_logs.each do |slot_log| %>
+          <% @device.slot_logs.group_by(&:db_id).each do |slot_log| %>
           <% if slot_log.db_prize < 4 %>
                   <tr>
                     <td><%= slot_log.db_id %></td>
@@ -37,7 +37,7 @@
               </tr>
           </thead>
           <tbody>
-              <% @device.slot_logs.each do |slot_log| %>
+              <% @device.slot_logs.group(:id).each do |slot_log| %>
                   <tr>
                     <td><%= slot_log.db_id %></td>
                     <td><%= slot_log.db_prize %></td>
