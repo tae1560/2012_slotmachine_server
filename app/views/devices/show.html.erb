@@ -1,7 +1,7 @@
 <ul>
   <li>번호 : <%= @device.id %></li>
   <li>아이디 : <%= @device.device_id %></li>
-  <li>1등 당첨 로그 :
+  <li>1등 당첨 로그 : (<%= @device.slot_logs.where(:db_prize => 1).size %>개)
     <div class="itsthetable">
         <table>
           <thead>
@@ -12,7 +12,7 @@
           </tr>
           </thead>
           <tbody>
-          <% @device.slot_logs.where(:db_prize => 1).each do |slot_log| %>
+          <% @device.slot_logs.where(:db_prize => 1).reverse.each do |slot_log| %>
                   <tr>
                     <td><%= slot_log.db_id %></td>
                     <td><%= slot_log.db_prize %></td>
@@ -24,7 +24,7 @@
         </table>
     </div>
   </li>
-  <li>2등 당첨 로그 :
+  <li>2등 당첨 로그 : (<%= @device.slot_logs.where(:db_prize => 2).size %>개)
     <div class="itsthetable">
       <table>
         <thead>
@@ -35,7 +35,7 @@
         </tr>
         </thead>
         <tbody>
-        <% @device.slot_logs.where(:db_prize => 2).each do |slot_log| %>
+        <% @device.slot_logs.where(:db_prize => 2).reverse.each do |slot_log| %>
             <tr>
               <td><%= slot_log.db_id %></td>
               <td><%= slot_log.db_prize %></td>
@@ -47,7 +47,7 @@
       </table>
     </div>
   </li>
-  <li>3등 당첨 로그 :
+  <li>3등 당첨 로그 : (<%= @device.slot_logs.where(:db_prize => 3).size %>개)
     <div class="itsthetable">
       <table>
         <thead>
@@ -58,7 +58,7 @@
         </tr>
         </thead>
         <tbody>
-        <% @device.slot_logs.where(:db_prize => 3).each do |slot_log| %>
+        <% @device.slot_logs.where(:db_prize => 3).reverse.each do |slot_log| %>
             <tr>
               <td><%= slot_log.db_id %></td>
               <td><%= slot_log.db_prize %></td>
@@ -70,7 +70,7 @@
       </table>
     </div>
   </li>
-  <li>전체 로그 :
+  <li>전체 로그 : (<%= @device.slot_logs.size %>개)
     <div class="itsthetable">
         <table>
           <thead>
@@ -81,7 +81,7 @@
               </tr>
           </thead>
           <tbody>
-              <% @device.slot_logs.each do |slot_log| %>
+              <% @device.slot_logs.reverse.each do |slot_log| %>
                   <tr>
                     <td><%= slot_log.db_id %></td>
                     <td><%= slot_log.db_prize %></td>
