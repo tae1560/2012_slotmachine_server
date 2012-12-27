@@ -16,6 +16,8 @@ class SlotLogsController < ApplicationController
 
     added_id = []
     if json_logs and device_id
+      device = Device.where(:device_id => device_id).first
+
       parsed_json_logs = ActiveSupport::JSON.decode(json_logs)
 
       parsed_json_logs.each do |parsed_json_log|
@@ -24,12 +26,12 @@ class SlotLogsController < ApplicationController
         time = parsed_json_log["time"]
 
         #SlotLog.
-        if SlotLog.where(:device_id => device_id).where(:db_id => id).exists?
-          slot_log = SlotLog.where(:device_id => device_id).where(:db_id => id).first
-        else
-          slot_log = SlotLog.new(:db_id => id)
 
-          device = Device.where(:device_id => device_id).first
+
+
+        slot_log = SlotLog.where(:device_id => device.id).where(:db_id => id).first
+        unless slot_log
+          slot_log = SlotLog.new(:db_id => id)
           slot_log.device = device
         end
         #slot_log = SlotLog.new(:db_id => id)
