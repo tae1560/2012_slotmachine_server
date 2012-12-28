@@ -18,34 +18,68 @@
     </thead>
     <% count = 0 %>
     <% @devices.each do |device| %>
-        <% if count.odd? %>
-            <tr class="odd">
-        <% else %>
-            <tr class="even">
-        <% end
-           count += 1
-        %>
-          <td><%=device.id%></td>
-          <% if (device.device_id =~ /_/) and ((device.device_id.include? "mart") or (device.device_id.include? "ski01")) %>
-            <td><%=device.device_id[0, (device.device_id =~ /_/)]%></td>
-          <% else %>
-            <td><%= device.device_id %> </td>
-          <% end %>
+        <% if ((device.device_id.include? "mart") or (device.device_id.include? "ski01")) or @is_debug %>
+            <% if count.odd? %>
+                <tr class="odd">
+            <% else %>
+                <tr class="even">
+            <% end
+               count += 1
+            %>
+            <td><%=device.id%></td>
+            <% if (device.device_id =~ /_/) and ((device.device_id.include? "mart") or (device.device_id.include? "ski01")) %>
+                <% device_id = device.device_id[0, (device.device_id =~ /_/)]%>
+            <% else %>
+                <% device_id = device.device_id %>
+            <% end %>
+            <% if device_id == "mart01"
+              device_id = "홈플북수원"
+              elsif device_id == "mart02"
+                device_id = "홈플야탑"
+              elsif device_id == "mart03"
+                device_id = "이마트죽전"
+              elsif device_id == "mart04"
+                device_id = "이마트남양주"
+              elsif device_id == "mart05"
+                device_id = "롯데의왕"
+              elsif device_id == "mart06"
+                device_id = "이마트산본"
+              elsif device_id == "mart07"
+                device_id = "이마트동인천"
+              elsif device_id == "mart08"
+                device_id = "홈플부천상동"
+              elsif device_id == "mart09"
+                device_id = "이마트부천"
+              elsif device_id == "mart10"
+                device_id = "이마트동탄"
+              elsif device_id == "mart11"
+                device_id = "이마트동백"
+              elsif device_id == "mart12"
+                device_id = "이마트이천"
+              elsif device_id == "mart13"
+                device_id = "이마트파주"
+              elsif device_id == "ski01"
+                device_id = "용평스키장"
+               end
+              %>
+            <td><%= device_id %></td>
 
-        <% if @is_debug %>
-          <td><%=device.update_start_date.in_time_zone("Seoul")%></td>
-          <td><%=device.update_end_date.in_time_zone("Seoul")%></td>
-          <td><%=device.need_update%></td>
+            <% if @is_debug %>
+                <td><%=device.update_start_date.in_time_zone("Seoul")%></td>
+                <td><%=device.update_end_date.in_time_zone("Seoul")%></td>
+                <td><%=device.need_update%></td>
 
             <% end %>
-          <td><%= link_to "정보보기", device %></td>
-          <td>
-            <%= device.slot_logs.where(:db_prize=>1).group_by(&:db_id).size %> /
-            <%= device.slot_logs.where(:db_prize=>2).group_by(&:db_id).size %> /
-            <%= device.slot_logs.where(:db_prize=>3).group_by(&:db_id).size %> /
-            <%= device.slot_logs.where(:db_prize=>4).group_by(&:db_id).size %>
-          </td>
-        </tr>
+            <td><%= link_to "정보보기", device %></td>
+            <td>
+              <%= device.slot_logs.where(:db_prize=>1).group_by(&:db_id).size %> /
+              <%= device.slot_logs.where(:db_prize=>2).group_by(&:db_id).size %> /
+              <%= device.slot_logs.where(:db_prize=>3).group_by(&:db_id).size %> /
+              <%= device.slot_logs.where(:db_prize=>4).group_by(&:db_id).size %>
+            </td>
+            </tr>
+        <% end %>
+
     <% end %>
   </table>
 </div>

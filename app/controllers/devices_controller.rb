@@ -1,6 +1,6 @@
 class DevicesController < ApplicationController
   def index
-    @devices = Device.all
+    @devices = Device.order(:device_id).all
     @is_debug = params["debug"]
 
     respond_to do |format|
