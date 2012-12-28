@@ -24,7 +24,12 @@
            count += 1
         %>
           <td><%=device.id%></td>
-          <td><%=device.device_id%></td>
+          <% if (device.device_id =~ /_/) and ((device.device_id.include? "mart") or (device.device_id.include? "ski01")) %>
+            <td><%=device.device_id[0, (device.device_id =~ /_/)]%></td>
+          <% else %>
+            <td><%= device.device_id %> </td>
+          <% end %>
+
           <td><%=device.update_start_date.in_time_zone("Seoul")%></td>
           <td><%=device.update_end_date.in_time_zone("Seoul")%></td>
           <td><%=device.need_update%></td>

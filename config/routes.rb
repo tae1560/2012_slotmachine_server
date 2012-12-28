@@ -7,6 +7,8 @@ Slotmachine::Application.routes.draw do
 
   match 'device_information' => 'devices#information'
   match 'initialize_data' => 'probabilities#initialize_data'
+  match 'append_logs' => 'slot_logs#append_logs'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

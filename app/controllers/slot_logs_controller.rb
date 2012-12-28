@@ -91,4 +91,19 @@ class SlotLogsController < ApplicationController
       render :json => "false"
     end
   end
+
+
+  def append_logs
+
+                 # now, do the dirty work
+                 require 'net/http'
+    # get the url that we need to post to
+    url = URI.parse('http://soma2.vps.phps.kr:3000/slot_logs')
+                 #url = URI.parse('http://www.naver.com')
+
+    resp, data = Net::HTTP.post_form(url, { 'device_id' => Device.find(67).device_id })
+
+    render :json => data
+    #             render :json => resp
+  end
 end
