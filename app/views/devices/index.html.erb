@@ -65,8 +65,17 @@
             <td><%= device_id %></td>
 
             <% if @is_debug %>
-                <td><%=device.update_start_date.in_time_zone("Seoul")%></td>
-                <td><%=device.update_end_date.in_time_zone("Seoul")%></td>
+                <% if device.update_start_date %>
+                    <td><%=device.update_start_date.in_time_zone("Seoul")%></td>
+                <% else %>
+                    <td> </td>
+                <% end %>
+
+                <% if device.update_end_date %>
+                    <td><%=device.update_end_date.in_time_zone("Seoul")%></td>
+                <% else %>
+                    <td> </td>
+                <% end %>
                 <td><%=device.need_update%></td>
 
             <% end %>
