@@ -7,9 +7,11 @@
     <tr>
       <th>번호</th>
       <th>매장ID</th>
+      <% if @is_debug %>
       <th>업데이트 시작시간</th>
       <th>업데이트 종료시간</th>
       <th>업데이트 필요여부</th>
+      <% end %>
       <th>정보보기</th>
       <th>당첨상황</th>
     </tr>
@@ -30,9 +32,12 @@
             <td><%= device.device_id %> </td>
           <% end %>
 
+        <% if @is_debug %>
           <td><%=device.update_start_date.in_time_zone("Seoul")%></td>
           <td><%=device.update_end_date.in_time_zone("Seoul")%></td>
           <td><%=device.need_update%></td>
+
+            <% end %>
           <td><%= link_to "정보보기", device %></td>
           <td>
             <%= device.slot_logs.where(:db_prize=>1).group_by(&:db_id).size %> /

@@ -1,6 +1,7 @@
 class DevicesController < ApplicationController
   def index
     @devices = Device.all
+    @is_debug = params["debug"]
 
     respond_to do |format|
       format.html
